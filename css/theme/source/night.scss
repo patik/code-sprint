@@ -33,3 +33,18 @@ $mainFontSize: 30px;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal .slides .left {
+    text-align: left;
+}
+
+.reveal .slides .float-left {
+    float: left;
+    width: 50%;
+    text-align: left;
+
+    &:first-child {
+        width: 45%;
+        margin-right: 5%;
+    }
+}
