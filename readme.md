@@ -1,3 +1,3 @@
-# [Effective Development with Code Sprints](http://patik.github.io/code-sprint)
+# [Developing Effectively with Code Sprints](http://patik.github.io/code-sprint)
 
-An [Ignite talk](http://igniteshow.com) given at [NYS DevCon 2013](http://nys-its.github.io/ny-innovates/) on December 18, 2013
+An [Ignite talk](http://igniteshow.com) about implementing code sprints to finish projects quickly and efficiently.
