@@ -16,6 +16,5 @@
 16. Recipe for a code sprint
 17. Focused goal (in-depth)
 18. BYOD/pre-setup
-    - Built-in cross-platform testing
 19. Preparation
 20. Evaluate & Fine Tune, then do it again
