@@ -1,6 +1,7 @@
 /* global module:false */
 module.exports = function(grunt) {
     var port = grunt.option('port') || 8000;
+
     // Project configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -19,9 +20,13 @@ module.exports = function(grunt) {
             options: {
                 banner: '<%= meta.banner %>\n'
             },
-            build: {
+            reveal: {
                 src: 'js/reveal.js',
                 dest: 'js/reveal.min.js'
+            },
+            revealConfig: {
+                src: 'js/reveal.config.js',
+                dest: 'js/reveal.config.min.js'
             }
         },
 
@@ -36,7 +41,6 @@ module.exports = function(grunt) {
         sass: {
             main: {
                 files: {
-                    'css/theme/default.css': 'css/theme/source/default.scss',
                     'css/theme/night.css': 'css/theme/source/night.scss'
                 }
             }
@@ -62,7 +66,7 @@ module.exports = function(grunt) {
                     unescape: false
                 }
             },
-            files: [ 'Gruntfile.js', 'js/reveal.js' ]
+            files: [ 'Gruntfile.js', 'js/reveal.js', 'js/reveal.config.js' ]
         },
 
         connect: {
@@ -76,15 +80,26 @@ module.exports = function(grunt) {
 
         watch: {
             main: {
-                files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
+                files: [ 'Gruntfile.js', 'js/reveal.js', 'js/reveal.config.js', 'css/reveal.css' ],
                 tasks: 'default'
             },
             theme: {
                 files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
                 tasks: 'themes'
             }
-        }
+        },
 
+        concat: {
+            options: {},
+            css: {
+                src: ['css/imports.css', 'css/reveal.min.css', 'css/theme/night.css'],
+                dest: 'css/style.css',
+            },
+            js: {
+                src: ['lib/js/head.min.js', 'js/reveal.min.js', 'js/reveal.config.min.js'],
+                dest: 'js/script.js',
+            }
+        }
     });
 
     // Dependencies
@@ -94,17 +109,17 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
     grunt.loadNpmTasks( 'grunt-contrib-sass' );
     grunt.loadNpmTasks( 'grunt-contrib-connect' );
+    grunt.loadNpmTasks( 'grunt-contrib-concat' );
 
     // Default task
-    grunt.registerTask( 'default', [ 'sass', 'jshint', 'cssmin', 'uglify' ] );
+    grunt.registerTask( 'default', [ 'sass', 'jshint', 'cssmin', 'uglify', 'concat' ] );
 
     // Theme task
-    grunt.registerTask( 'themes', [ 'sass' ] );
+    grunt.registerTask( 'themes', [ 'sass', 'concat' ] );
 
     // Serve presentation locally
     grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
 
     // Run tests
     grunt.registerTask( 'test', [ 'jshint' ] );
-
 };
