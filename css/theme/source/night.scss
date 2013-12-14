@@ -11,11 +11,6 @@
 // ---------------------------------------------
 
 
-// Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
-
-
 // Override theme settings (see ../template/settings.scss)
 $backgroundColor: #333; // #111;
 
@@ -33,18 +28,3 @@ $mainFontSize: 30px;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
-
-.reveal .slides .left {
-    text-align: left;
-}
-
-.reveal .slides .float-left {
-    float: left;
-    width: 50%;
-    text-align: left;
-
-    &:first-child {
-        width: 45%;
-        margin-right: 5%;
-    }
-}

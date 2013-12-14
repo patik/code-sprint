@@ -40,8 +40,14 @@ module.exports = function(grunt) {
 
         sass: {
             main: {
-                files: {
+                theme: {
                     'css/theme/night.css': 'css/theme/source/night.scss'
+                },
+                customPre: {
+                    'css/custom-pre.css': 'css/custom-pre.scss'
+                },
+                customPost: {
+                    'css/custom-post.css': 'css/custom-post.scss'
                 }
             }
         },
@@ -92,7 +98,7 @@ module.exports = function(grunt) {
         concat: {
             options: {},
             css: {
-                src: ['css/imports.css', 'css/reveal.min.css', 'css/theme/night.css'],
+                src: ['css/custom-pre.css', 'css/reveal.min.css', 'css/theme/night.css', 'css/custom-post.css'],
                 dest: 'css/style.css',
             },
             js: {
