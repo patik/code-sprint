@@ -33,21 +33,19 @@ module.exports = function(grunt) {
         cssmin: {
             compress: {
                 files: {
-                    'css/reveal.min.css': [ 'css/reveal.css' ]
+                    'css/reveal.min.css': [ 'css/reveal.css' ],
+                    'css/custom/pre.css': [ 'css/custom/pre.src.css' ],
+                    'css/custom/post.css': [ 'css/custom/post.src.css' ]
                 }
             }
         },
 
         sass: {
             main: {
-                theme: {
-                    'css/theme/night.css': 'css/theme/source/night.scss'
-                },
-                customPre: {
-                    'css/custom-pre.css': 'css/custom-pre.scss'
-                },
-                customPost: {
-                    'css/custom-post.css': 'css/custom-post.scss'
+                files: {
+                    'css/theme/night.css': 'css/theme/source/night.scss',
+                    'css/custom/pre.src.css': 'css/custom/pre.scss',
+                    'css/custom/post.src.css': 'css/custom/post.scss'
                 }
             }
         },
@@ -86,7 +84,7 @@ module.exports = function(grunt) {
 
         watch: {
             main: {
-                files: [ 'Gruntfile.js', 'js/reveal.js', 'js/reveal.config.js', 'css/reveal.css' ],
+                files: [ 'Gruntfile.js', 'js/reveal.js', 'js/reveal.config.js', 'css/reveal.css', 'css/custom/*.scss' ],
                 tasks: 'default'
             },
             theme: {
@@ -98,7 +96,7 @@ module.exports = function(grunt) {
         concat: {
             options: {},
             css: {
-                src: ['css/custom-pre.css', 'css/reveal.min.css', 'css/theme/night.css', 'css/custom-post.css'],
+                src: ['css/custom/pre.css', 'css/reveal.min.css', 'css/theme/night.css', 'css/custom/post.css'],
                 dest: 'css/style.css',
             },
             js: {
@@ -118,10 +116,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( 'grunt-contrib-concat' );
 
     // Default task
-    grunt.registerTask( 'default', [ 'sass', 'jshint', 'cssmin', 'uglify', 'concat' ] );
+    grunt.registerTask( 'default', [ 'sass', 'cssmin', 'jshint', 'uglify', 'concat' ] );
 
     // Theme task
-    grunt.registerTask( 'themes', [ 'sass', 'concat' ] );
+    grunt.registerTask( 'themes', [ 'sass', 'cssmin', 'concat' ] );
 
     // Serve presentation locally
     grunt.registerTask( 'serve', [ 'connect', 'watch' ] );

@@ -9,8 +9,8 @@
 9. In the trenches experience 2
 10. In the trenches experience 3
 11. Keys to Success (what parts worked)
-12. What type of projects they're good for
-13. What didn't work
+12. What didn't work
+13. What type of projects they're good for
 14. Work versus play
 15. Best places for you to apply the practice
 16. Recipe for a code sprint
