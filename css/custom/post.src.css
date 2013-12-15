@@ -1,5 +1,13 @@
-.reveal .slides .left {
-  text-align: left; }
+.reveal {
+  font-family: "Open Sans", "Andada", "Helvetica Neue", Arial, sans-serif; }
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: "Aller", "Helvetica Neue", Arial, sans-serif; }
 
 .reveal .slides .float-left {
   float: left;
