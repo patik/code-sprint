@@ -5,3 +5,6 @@ tmp/**
 node_modules/
 .sass-cache
 materials.pdf
+*.ppt
+*.pptx
+*.key
